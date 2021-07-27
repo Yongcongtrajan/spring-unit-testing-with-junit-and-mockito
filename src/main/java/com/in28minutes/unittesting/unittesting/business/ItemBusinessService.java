@@ -1,12 +1,11 @@
 package com.in28minutes.unittesting.unittesting.business;
 
-import java.util.List;
-
+import com.in28minutes.unittesting.unittesting.data.ItemRepository;
+import com.in28minutes.unittesting.unittesting.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.in28minutes.unittesting.unittesting.data.ItemRepository;
-import com.in28minutes.unittesting.unittesting.model.Item;
+import java.util.List;
 
 @Component
 public class ItemBusinessService {
@@ -20,6 +19,9 @@ public class ItemBusinessService {
 	
 	public List<Item> retrieveAllItems() {
 		List<Item> items = repository.findAll();
+
+
+		//
 		
 		for(Item item:items) {
 			item.setValue(item.getPrice() * item.getQuantity());
